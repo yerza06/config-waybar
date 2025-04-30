@@ -7,7 +7,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "clock",
+        "hyprland/workspaces",
         "group/hardware",
         // "cpu",
         // "memory",
@@ -17,7 +17,7 @@
         "custom/media"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "clock"
 	],
     "modules-right": [
         "user",
