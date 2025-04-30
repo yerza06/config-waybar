@@ -53,6 +53,7 @@
         "modules": [
             "pulseaudio",    
             "backlight",
+            "hyprland/language",
             "battery",
             "battery#bat2"
         ]
@@ -60,10 +61,8 @@
     "group/gg": {
         "orientation": "inherit",
         "modules": [
-            "tray",
             "network",
-            "power-profiles-daemon",
-            "hyprland/language"
+            "power-profiles-daemon"
         ]
     },
     "custom/hardware": {
@@ -139,7 +138,7 @@
         // "timezone": "America/New_York",
 		"interval": 1,
 		// "format": " {:%H:%M  %d.%m.%Y}",
-		"format": " {:%a %b %d  %H:%M:%S}",
+		"format": "{:%c}",
 		"max-length": 25,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": " {:%H:%M:%S}"

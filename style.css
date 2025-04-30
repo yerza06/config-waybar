@@ -17,8 +17,8 @@ window {
 }
 
 window#waybar {
-    /*background: #171A1D;*/
-    background: rgba(255, 255, 255, 0);
+    background: #171A1D;
+    /*background: rgba(255, 255, 255, 0);*/
 	margin: 20px 30px;
     color: #fff;
     transition-property: background-color;
@@ -114,8 +114,8 @@ button {
     border-radius: 30px;
 }
 
-#group-hardware, #group-g, #group-gg {
-    background-color: #171A1D;
+#group_hardware, #group_g, #group_gg {
+    background: #171A1D;
 }
 
 #pulseaudio {
