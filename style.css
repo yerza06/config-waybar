@@ -96,6 +96,7 @@ button {
 #custom-hardware,
 #backlight,
 #network,
+#bluetooth,
 #pulseaudio,
 #wireplumber,
 #custom-media,
@@ -116,6 +117,7 @@ button {
 
 #group_hardware, #group_g, #group_gg {
     background: #171A1D;
+    border: 2px #ffffff solid;
 }
 
 #pulseaudio {

@@ -5,7 +5,7 @@ track=$(playerctl -p spotify metadata --format "{{ artist }} - {{ title }}")
 
 # Если Spotify не запущен или трек не играет, выводим сообщение
 if [ -z "$track" ]; then
-  echo "No music playing"
+  echo ""
 else
   echo "$track"
 fi

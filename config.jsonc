@@ -7,8 +7,9 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "group/logo",
         "hyprland/workspaces",
-        "group/hardware",
+        //"group/hardware",
         // "cpu",
         // "memory",
         // "temperature",
@@ -20,19 +21,25 @@
         "clock"
 	],
     "modules-right": [
-        "user",
-        //"pulseaudio",
-        //"network",
-        //"power-profiles-daemon",
-        //"backlight",
-        //"hyprland/language",
-        //"battery",
-        //"battery#bat2",
-        //"tray",
-        "group/gg",
+        "hyprland/language",
+        "tray",
+        "group/connection",
         "group/g",
-        "custom/power"
     ],
+    "group/logo": {
+		"orientation": "horizontal",
+        "modules": [
+            "custom/logo",
+            "custom/power",
+            "power-profiles-daemon",
+            "user",
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": true
+        }
+    },
 	"group/hardware": {
 		"orientation": "horizontal",
 		"modules": [
@@ -45,7 +52,7 @@
         "drawer": {
             "transition-duration": 500,
             "children-class": "not-power",
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         }
 	},
     "group/g": {
@@ -53,16 +60,15 @@
         "modules": [
             "pulseaudio",    
             "backlight",
-            "hyprland/language",
             "battery",
             "battery#bat2"
         ]
     },
-    "group/gg": {
+    "group/connection": {
         "orientation": "inherit",
         "modules": [
             "network",
-            "power-profiles-daemon"
+            "bluetooth"
         ]
     },
     "custom/hardware": {
@@ -92,56 +98,21 @@
 			 "active": ""
          }
      },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
 	"hyprland/window": {
 		"format": "{title}",
 		"tooltip": true,
 		"all-outputs": true		
 	},
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "hyprland/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "mpd": {
-        "format": "{title}",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
 		"interval": 1,
-		// "format": " {:%H:%M  %d.%m.%Y}",
 		"format": "{:%c}",
 		"max-length": 25,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%H:%M:%S}"
+		"format-alt": " {:%d.%m.%Y   %H:%M:%S}",
     },
     "cpu": {
         "format": " {usage}%" ,
@@ -166,13 +137,14 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
+        "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "tooltip-format": "Display: {percent}%"
     },
 	"hyprland/language": {
 		"format": "{short}",
-		"format-alt": "{long}"
+		"format-alt": "{long}",
+        //"format-en": "EN",
 	},
     "battery": {
         "states": {
@@ -215,9 +187,18 @@
         //"format-alt": "{ifname}: {ipaddr}/{cidr}",
 		"on-click": "kitty nmtui"
     },
+    "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	"format": " {status}",
+	"format-disabled": "", // an empty format will hide the module
+	"format-connected": " {num_connections}",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+},
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -237,8 +218,17 @@
     "custom/media": {
         "exec": "~/.config/waybar/customs/spotify-track.sh",
         "format": " {}",
+        "tooltip-format": "{}",
         "interval": 1,  // Обновлять каждую секунду
+        "on-click": "playerctl -p spotify play-pause",
+        "on-scroll-up" : "playerctl -p spotify next",
+        "on-scroll-down" : "playerctl -p spotify previous",
+        //"max-length": 30
         //"return-type": "json"
+    },
+    "custom/logo": {
+        "format": "  ",
+        "tooltip-format": " I use Arch, btw\n GitHub: yerza06"
     },
     "custom/power": {
 		"interval": 1,
