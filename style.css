@@ -100,13 +100,17 @@ button {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-logo,
 #custom-power,
+#custom-reboot,
+#custom-suspend,
 #tray,
 #mode,
 #idle_inhibitor,
 #language,
 #scratchpad,
 #power-profiles-daemon,
+#custom-countdown,
 #mpd {
     padding: 0 15px;
     color: #ffffff;
