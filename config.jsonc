@@ -216,7 +216,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "kitty pulsemixer",
+        "on-click-right": "pavucontrol"
     },
     "custom/media": {
         "exec": "~/.config/waybar/customs/spotify-track.sh",
@@ -243,13 +244,13 @@
     "custom/power": {
         "interval": 1,
         "format": "⏻",
-        "on-click": "shutdown +0:5",
+        "on-click": "shutdown -h now",
         "on-click-right": "shutdown -c",
     },
     "custom/reboot": {
         "interval": 1,
         "format": "󰑓",
-        "on-click": "shutdown -r +0:5",
+        "on-click": "shutdown -r now",
         "on-click-right": "shutdown -c",
     },
     "custom/suspend": {
